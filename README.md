@@ -16,7 +16,7 @@ In order to use this repository, you need to install some packages first.
 These packages are REQUIRED for building the repository with the given build-environments.
 
 ```sh
-$ sudo apt install build-essential make cmake libpthread-stubs0-dev gcovr libgtk-3-dev
+$ sudo apt install build-essential make cmake libpthread-stubs0-dev gcovr libgtk-3-dev libgtest-dev
 ```
 
 **NOTE:** ___The provided links might not be applicable to your distribution or version. They are my personal reference from when I created this repository.___
@@ -25,9 +25,10 @@ $ sudo apt install build-essential make cmake libpthread-stubs0-dev gcovr libgtk
 |-----------------------|-------------------------------------------------|------------------------------------------------------------|
 | build-essential       | Necessary build-tools for C/C++, including make | https://packages.debian.org/bullseye/build-essential       |
 | cmake                 | For using the provided CMakeLists               | https://packages.debian.org/bullseye/cmake                 |
-| libpthread-stubs0-dev | Library for PThread (required for GTK)          | https://packages.debian.org/bullseye/libpthread-stubs0-dev |
+| libpthread-stubs0-dev | Library for PThread (required for GTK/GTest)    | https://packages.debian.org/bullseye/libpthread-stubs0-dev |
 | gcovr                 | Library for Google Test Coverage                | https://packages.debian.org/bullseye/gcovr                 |
 | libgtk-3-dev          | Library for GTK3                                | https://packages.debian.org/bullseye/libgtk-3-dev          |
+| libgtest-dev          | Gooogle's framework for writing C tests         | https://packages.debian.org/bullseye/libgtest-dev          |
 
 Additionally, you will need to create the following build directories:
 
@@ -44,7 +45,7 @@ $ cp modules cmake-build
 Here's a full example for copy-paste:
 
 ```
-sudo apt install build-essential make cmake libpthread-stubs0-dev gcovr libgtk-3-dev
+sudo apt install build-essential make cmake libpthread-stubs0-dev gcovr libgtk-3-dev libgtest-dev
 mkdir build cmake-build
 cp modules cmake-build
 ```

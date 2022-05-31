@@ -42,7 +42,8 @@
             "browse": {
                 "path": [
                     "${default}",
-                    "${workspaceFolder}/**"
+                    "${workspaceFolder}/**",
+                    "/usr/include/gtest" // To shut up the warning about gtest in *.cxx files
                 ],
                 "limitSymbolsToIncludedHeaders": true,
                 "databaseFilename": ".vscode/browse-cache.db"
