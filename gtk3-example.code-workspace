@@ -18,8 +18,8 @@
         },
         "makefile.launchConfigurations": [
             {
-                "cwd": "/home/rini-debian/git-stash/gtk3-example/build",
-                "binaryPath": "/home/rini-debian/git-stash/gtk3-example/build/current",
+                "cwd": "",
+                "binaryPath": "",
                 "binaryArgs": []
             }
         ],
@@ -29,7 +29,8 @@
         "version": "2.0.0",
         "tasks": [
             {
-                "label": "Build active C/C++ file"
+                "label": "Build active C/C++ file",
+                // TODO Create build-active-file task
             }
         ]
     },
@@ -37,6 +38,7 @@
         "configurations": [
             {
                 "name": "Debug active C/C++ file"
+                // TODO Create debug active file launcher
             }
         ],
         "compounds": []
