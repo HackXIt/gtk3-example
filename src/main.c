@@ -4,7 +4,7 @@
  * Created:
  *   May 30, 2022, 7:50:05 PM GMT+2
  * Last edited:
- *   May 31, 2022, 10:30:20 AM GMT+2
+ *   May 31, 2022, 11:29:28 AM GMT+2
  * Auto updated?
  *   Yes
  *
@@ -24,7 +24,7 @@
 int main(int argc, char const *argv[])
 {
     /* general program preparation code */
-    printf("Program was started as %s with %d arguments.", argv[0], argc);
+    printf("Program was started as %s with %d arguments.\n", argv[0], argc);
 
     /* execute gui_main() to start the graphic application */
     gui_main(argc, (char **)argv);

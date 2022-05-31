@@ -33,7 +33,8 @@ CHANGE_DIR_CMAKE=cd cmake-build
 DOXYGEN=doxygen
 # For GTK
 GTKFLAGS=`pkg-config --cflags gtk+-3.0`
-GTKLIB=`pkg-config --libs gtk+-3.0`
+GTKLIB=`pkg-config --libs gtk+-3.0`#
+GLADE_FILE=./src/glade-example.glade
 # These define where make should look for certain project files, if necessary
 # This is only used when using the Makefile to build and NOT cmake
 vpath %.o ./build
@@ -85,6 +86,8 @@ clean:
 doc: Doxyfile
 	${DOXYGEN} $<
 
+resource:
+	cp $(GLADE_FILE) ./build/ && cp $(GLADE_FILE) ./cmake-build/bin
 
 # The following targets are shortcuts to use the underlying CMakeFiles.txt in 'cmake-build'
 # Cleans the created builds
@@ -105,4 +108,4 @@ testrun: build
 
 # For targets which don't have any input-files and just execute something
 # Read this for clarification: https://web.mit.edu/gnu/doc/html/make_4.html#SEC31
-.PHONY: clean cmake-clean build test coverage testrun build-test
+.PHONY: clean cmake-clean build test coverage testrun build-test resource

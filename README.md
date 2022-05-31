@@ -89,3 +89,40 @@ cp modules cmake-build
 ## C/C++ Properties
 
 - [ ] Add information about the provided C/C++ properties file
+
+# Troubleshooting
+
+If you get the following error:
+
+```bash
+> ~/gtk3-example/build/
+Program was started as ./current with 1 arguments.
+Using Glade for the GUI...
+
+(current:15402): Gtk-ERROR **: 11:21:23.889: failed to add UI: Failed to open file “glade-example.glade”: No such file or directory
+Trace/breakpoint trap
+```
+
+or alternatively when built with cmake:
+
+```bash
+> ~/gtk3-example/cmake-build/bin
+Program was started as ./gtk3-example with 1 arguments.
+Using Glade for the GUI...
+
+(gtk3-example:16174): Gtk-ERROR **: 11:30:50.253: failed to add UI: Failed to open file “glade-example.glade”: No such file or directory
+Trace/breakpoint trap
+```
+
+It means, that the program can't find the resource file to parse. There is no path given in the source file, so it searches for that in your current working directory.
+If that file isn't in your current working directory, because you maybe changed directories to the build folder, then it won't find it.
+
+There's a Makefile target to copy the glade file into the build-folder:
+
+`make resource`
+
+You can avoid the error, by calling the program from the root directory, where the glade-file resides.
+
+`./build/current`
+or
+`./cmake-build/bin/gtk3-example`
