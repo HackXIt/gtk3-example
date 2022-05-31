@@ -1,0 +1,4 @@
+.vscode/.history
+.vscode/*.log
+build
+cmake-build

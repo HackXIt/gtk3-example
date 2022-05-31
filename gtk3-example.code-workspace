@@ -1,0 +1,43 @@
+{
+    // This file might contain settings of extensions you don't have
+    // If you don't have those extensions, these settings will be ignored, which is OK
+    "folders": [
+        {
+            "path": "."
+        }
+    ],
+    "settings": {
+        "files.exclude": {
+            "**/.git": true,
+            "**/.svn": true,
+            "**/.hg": true,
+            "**/CVS": true,
+            "**/.DS_Store": true,
+            "**/Thumbs.db": true,
+            ".vscode/.history": true // Used for the history-extension
+        },
+        "makefile.launchConfigurations": [
+            {
+                "cwd": "/home/rini-debian/git-stash/gtk3-example/build",
+                "binaryPath": "/home/rini-debian/git-stash/gtk3-example/build/current",
+                "binaryArgs": []
+            }
+        ]
+    },
+    "tasks": {
+        "version": "2.0.0",
+        "tasks": [
+            {
+                "label": "Build active C/C++ file"
+            }
+        ]
+    },
+    "launch": {
+        "configurations": [
+            {
+                "name": "Debug active C/C++ file"
+            }
+        ],
+        "compounds": []
+    }
+}
