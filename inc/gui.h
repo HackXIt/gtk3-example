@@ -4,7 +4,7 @@
  * Created:
  *   May 30, 2022, 7:52:51 PM GMT+2
  * Last edited:
- *   May 31, 2022, 8:28:43 AM GMT+2
+ *   May 31, 2022, 9:30:20 AM GMT+2
  * Auto updated?
  *   Yes
  *
@@ -17,6 +17,7 @@
 
 #include <gtk/gtk.h>
 
-
+void on_button1_clicked(GtkButton *b);
+int gui_main(int argc, char **argv);
 
 #endif

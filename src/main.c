@@ -4,7 +4,7 @@
  * Created:
  *   May 30, 2022, 7:50:05 PM GMT+2
  * Last edited:
- *   May 31, 2022, 8:09:21 AM GMT+2
+ *   May 31, 2022, 10:16:43 AM GMT+2
  * Auto updated?
  *   Yes
  *
@@ -13,6 +13,7 @@
  **/
 
 /*--- COMMON LIBRARIES ---*/
+#include <stdio.h>
 
 /*--- CUSTOM LIBRARIES ---*/
 #include "inc/gui.h" // Automatically imports GTK for ease-of-use
@@ -22,6 +23,7 @@
 int main(int argc, char const *argv[])
 {
     /* general program preparation code */
+    printf("Program was started as %s with %d arguments.", argv[0], argc);
 
     /* execute gui_main() to start the graphic application */
     gui_main(argc, argv);

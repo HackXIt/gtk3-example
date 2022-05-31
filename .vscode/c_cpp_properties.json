@@ -3,8 +3,34 @@
         {
             "name": "Linux",
             "includePath": [
-                "/usr/include",
-                "${workspaceFolder}/**"
+                "${workspaceFolder}/**",
+                // The paths of /usr/include are necessary for intellisense to work with GTK3
+                // To your own paths use 'pkg-config --cflags gtk+-3.0' in the terminal (requires pkg-config)
+                // Be aware, that only items prefixed with '-I' are necessary - only use linux path portion!
+                "/usr/include/gtk-3.0",
+                "/usr/include/at-spi2-atk/2.0",
+                "/usr/include/at-spi-2.0",
+                "/usr/include/dbus-1.0",
+                "/usr/lib/x86_64-linux-gnu/dbus-1.0/include",
+                "/usr/include/gtk-3.0",
+                "/usr/include/gio-unix-2.0",
+                "/usr/include/cairo",
+                // "/usr/include/libdrm", // not needed, as far as I know
+                "/usr/include/pango-1.0",
+                "/usr/include/harfbuzz",
+                "/usr/include/pango-1.0",
+                "/usr/include/fribidi",
+                "/usr/include/atk-1.0",
+                "/usr/include/cairo",
+                "/usr/include/pixman-1",
+                "/usr/include/freetype2",
+                "/usr/include/libpng16",
+                "/usr/include/gdk-pixbuf-2.0",
+                "/usr/include/libmount",
+                "/usr/include/blkid",
+                "/usr/include/uuid",
+                "/usr/include/glib-2.0",
+                "/usr/lib/x86_64-linux-gnu/glib-2.0/include"
             ],
             "defines": [],
             "compilerPath": "/usr/bin/gcc",
@@ -16,10 +42,10 @@
             "browse": {
                 "path": [
                     "${default}",
-                    "${workspaceFolder}/**",
-                    "/usr/include/**"
+                    "${workspaceFolder}/**"
                 ],
-                "limitSymbolsToIncludedHeaders": true
+                "limitSymbolsToIncludedHeaders": true,
+                "databaseFilename": ".vscode/browse-cache.db"
             }
         }
     ],

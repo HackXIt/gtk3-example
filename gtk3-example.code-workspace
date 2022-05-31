@@ -22,7 +22,8 @@
                 "binaryPath": "/home/rini-debian/git-stash/gtk3-example/build/current",
                 "binaryArgs": []
             }
-        ]
+        ],
+        "cmake.configureOnOpen": true
     },
     "tasks": {
         "version": "2.0.0",

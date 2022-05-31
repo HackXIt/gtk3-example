@@ -8,7 +8,7 @@ They can compare with their own versions and learn a few tricks, which are used 
 I'd like to mention, that I am by no means an expert but this is what I've made and it is working very well for me.
 I've used this in the provided Ubuntu Virtual machine, as well as in my personal WSL2 Debian environment.
 But results may vary, depending on the operating system or distribution.
-(Most definitly it __**will not work**__ on Windows!)
+(Most definitly it **will not work** on Windows!)
 
 # Information about the Makefile
 
