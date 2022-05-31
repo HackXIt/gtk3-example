@@ -80,7 +80,13 @@ cp modules cmake-build
 
 ## Recommended Extensions for development
 
-- [ ] Add list of recommended extension for C/C++ development
+- [x] Add list of recommended extension for C/C++ development
+
+- [C/C++ Extension Pack](https://marketplace.visualstudio.com/items?itemName=ms-vscode.cpptools-extension-pack)
+- [CMake](https://marketplace.visualstudio.com/items?itemName=twxs.cmake)
+- [CMake Tools](https://marketplace.visualstudio.com/items?itemName=ms-vscode.cmake-tools)
+- [Clang-Format](https://marketplace.visualstudio.com/items?itemName=xaver.clang-format)
+- [Makefile Tools](https://marketplace.visualstudio.com/items?itemName=ms-vscode.makefile-tools)
 
 ## Workspace file
 
