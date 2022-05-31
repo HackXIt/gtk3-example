@@ -16,7 +16,7 @@ In order to use this repository, you need to install some packages first.
 These packages are REQUIRED for building the repository with the given build-environments.
 
 ```sh
-$ sudo apt install build-essential make cmake libpthread-stubs0-dev gcovr libgtk-3-dev libgtest-dev
+$ sudo apt install build-essential cmake libpthread-stubs0-dev gcovr libgtk-3-dev libgtest-dev
 ```
 
 **NOTE:** ___The provided links might not be applicable to your distribution or version. They are my personal reference from when I created this repository.___

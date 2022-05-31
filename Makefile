@@ -33,7 +33,7 @@ CHANGE_DIR_CMAKE=cd cmake-build
 DOXYGEN=doxygen
 # For GTK
 GTKFLAGS=`pkg-config --cflags gtk+-3.0`
-GTKLIB=`pkg-config --libs gtk+-3.0`#
+GTKLIB=`pkg-config --libs gtk+-3.0`
 GLADE_FILE=./src/glade-example.glade
 # These define where make should look for certain project files, if necessary
 # This is only used when using the Makefile to build and NOT cmake
