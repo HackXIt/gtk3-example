@@ -87,6 +87,7 @@ cp modules cmake-build
 - [CMake Tools](https://marketplace.visualstudio.com/items?itemName=ms-vscode.cmake-tools)
 - [Clang-Format](https://marketplace.visualstudio.com/items?itemName=xaver.clang-format)
 - [Makefile Tools](https://marketplace.visualstudio.com/items?itemName=ms-vscode.makefile-tools)
+- [Local History](https://marketplace.visualstudio.com/items?itemName=xyz.local-history)
 
 ## Workspace file
 
