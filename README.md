@@ -35,6 +35,20 @@ Additionally, you will need to create the following build directories:
 $ mkdir build cmake-build
 ```
 
+After creating those directories, you need to copy the directory `modules` into `cmake-build`:
+
+```sh
+$ cp modules cmake-build
+```
+
+Here's a full example for copy-paste:
+
+```
+sudo apt install build-essential make cmake libpthread-stubs0-dev gcovr libgtk-3-dev
+mkdir build cmake-build
+cp modules cmake-build
+```
+
 # Information about the Makefile
 
 - [ ] Write short make guide, specific to this repository
