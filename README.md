@@ -12,29 +12,29 @@ But results may vary, depending on the operating system or distribution.
 
 # Information about the Makefile
 
-[ ] Write make guide
+- [ ] Write make guide
 
 # Information about the CMakeLists
 
-[ ] Write cmake guide
+- [ ] Write cmake guide
 
 # Information about the modules (GTest & CodeCoverage)
 
-[ ] Add references for GTest & CodeCoverage 
+- [ ] Add references for GTest & CodeCoverage 
 
 # Information about VS-Code specific configurations
 
-[ ] Add information about the VS code configuration, specific to this project
-[ ] Add reference-links for vs-code configuration
+- [ ] Add information about the VS code configuration, specific to this project
+- [ ] Add reference-links for vs-code configuration
 
 ## Recommended Extensions for development
 
-[ ] Add list of recommended extension for C/C++ development
+- [ ] Add list of recommended extension for C/C++ development
 
 ## Workspace file
 
-[ ] Add information about the provided workspace-file
+- [ ] Add information about the provided workspace-file
 
 ## C/C++ Properties
 
-[ ] Add information about the provided C/C++ properties file
+- [ ] Add information about the provided C/C++ properties file
