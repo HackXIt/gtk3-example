@@ -4,7 +4,7 @@
  * Created:
  *   May 30, 2022, 7:52:04 PM GMT+2
  * Last edited:
- *   May 31, 2022, 10:23:41 AM GMT+2
+ *   May 31, 2022, 10:29:52 AM GMT+2
  * Auto updated?
  *   Yes
  *
@@ -15,7 +15,10 @@
 /*--- COMMON LIBRARIES ---*/
 #include <stdio.h>
 #include <stdlib.h>
+
 /*--- CUSTOM LIBRARIES ---*/
+// The path to the header file should be included when executing compiler, not inside source
+#include "gui.h"
 
 /*--- MACROS ---*/
 #define USE_GLADE
@@ -26,7 +29,9 @@ GtkWidget *window;
 GtkWidget *fixed1;
 GtkWidget *button1;
 GtkWidget *label1;
+#ifdef USE_GLADE
 GtkBuilder *builder;
+#endif
 
 void on_button1_clicked(GtkButton *b)
 {

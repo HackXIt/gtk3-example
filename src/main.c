@@ -4,7 +4,7 @@
  * Created:
  *   May 30, 2022, 7:50:05 PM GMT+2
  * Last edited:
- *   May 31, 2022, 10:16:43 AM GMT+2
+ *   May 31, 2022, 10:30:20 AM GMT+2
  * Auto updated?
  *   Yes
  *
@@ -16,7 +16,8 @@
 #include <stdio.h>
 
 /*--- CUSTOM LIBRARIES ---*/
-#include "inc/gui.h" // Automatically imports GTK for ease-of-use
+// The path to the header file should be included when executing compiler, not inside source
+#include "gui.h" // Automatically imports GTK for ease-of-use
 
 /*--- MACROS ---*/
 
@@ -26,7 +27,7 @@ int main(int argc, char const *argv[])
     printf("Program was started as %s with %d arguments.", argv[0], argc);
 
     /* execute gui_main() to start the graphic application */
-    gui_main(argc, argv);
+    gui_main(argc, (char **)argv);
 
     /* Handle errors or do things after the GUI finished execution*/
     return 0;

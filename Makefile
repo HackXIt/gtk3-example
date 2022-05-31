@@ -22,7 +22,8 @@
 # 'make doc' => Generates the doxygen-documentation, if an appropriate Doxyfile exists
 
 # Variablen für das Makefile
-PROJECT=gtk3-example # This is the project name => IT MUST BE THE SAME as in CMakeLists.txt
+# The project name MUST BE THE SAME as in CMakeLists.txt
+PROJECT=gtk3-example
 CC=gcc
 CFLAGS=$(INC) -Wall -Wextra -pedantic -g -Wno-unused-parameter
 INC=-Iinc

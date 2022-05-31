@@ -10,13 +10,49 @@ I've used this in the provided Ubuntu Virtual machine, as well as in my personal
 But results may vary, depending on the operating system or distribution.
 (Most definitly it **will not work** on Windows!)
 
+# Pre-requisites for this repository to work
+
+In order to use this repository, you need to install some packages first.
+These packages are REQUIRED for building the repository with the given build-environments.
+
+```sh
+$ sudo apt install build-essential make cmake libpthread-stubs0-dev gcovr libgtk-3-dev
+```
+
+**NOTE:** ___The provided links might not be applicable to your distribution or version. They are my personal reference from when I created this repository.___
+
+| Package               | Why?                                            | Reference                                                  |
+|-----------------------|-------------------------------------------------|------------------------------------------------------------|
+| build-essential       | Necessary build-tools for C/C++, including make | https://packages.debian.org/bullseye/build-essential       |
+| cmake                 | For using the provided CMakeLists               | https://packages.debian.org/bullseye/cmake                 |
+| libpthread-stubs0-dev | Library for PThread (required for GTK)          | https://packages.debian.org/bullseye/libpthread-stubs0-dev |
+| gcovr                 | Library for Google Test Coverage                | https://packages.debian.org/bullseye/gcovr                 |
+| libgtk-3-dev          | Library for GTK3                                | https://packages.debian.org/bullseye/libgtk-3-dev          |
+
+Additionally, you will need to create the following build directories:
+
+```sh
+$ mkdir build cmake-build
+```
+
 # Information about the Makefile
 
-- [ ] Write make guide
+- [ ] Write short make guide, specific to this repository
+
+## References for Makefile
+
+- https://makefiletutorial.com/
+- https://www.gnu.org/software/make/manual/html_node/index.html
 
 # Information about the CMakeLists
 
-- [ ] Write cmake guide
+- [ ] Write short cmake guide, specific to this repository
+
+## References for CMakeLists
+
+- https://cmake.org/cmake/help/latest/guide/tutorial/index.html
+- http://derekmolloy.ie/hello-world-introductions-to-cmake/
+- https://cmake.org/cmake/help/latest/manual/cmake.1.html
 
 # Information about the modules (GTest & CodeCoverage)
 
