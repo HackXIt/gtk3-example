@@ -1,0 +1,2 @@
+builder = gtk_builder_new_from_resource("/builder/glade-example.glade");
+=> Hold ressource für builder von Ressource-Datei

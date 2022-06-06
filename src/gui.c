@@ -4,7 +4,7 @@
  * Created:
  *   May 30, 2022, 7:52:04 PM GMT+2
  * Last edited:
- *   May 31, 2022, 1:22:43 PM GMT+2
+ *   June 6, 2022, 11:04:06 AM GMT+2
  * Auto updated?
  *   Yes
  *
@@ -22,12 +22,16 @@
 
 /*--- MACROS ---*/
 #define USE_GLADE
+#define USE_RESOURCE
+#define PIC_X 3
+#define PIC_Y 3
 
 /*--- Global GTK variables ---*/
 // (not always recommended, but used here for sake of simplicity)
 GtkWidget *window;
 // GtkWindow *window;
 GtkWidget *fixed1;
+// GtkWidget *image_grid;
 GtkWidget *button1;
 GtkWidget *label1;
 GtkWidget *dialog1;
@@ -35,6 +39,11 @@ GtkWidget *dialog_entry;
 GtkWidget *dialog_label;
 GtkWidget *dialog_button1;
 GtkWidget *dialog_button2;
+GdkPixbuf *icon;
+GdkPixbuf *chair_64;
+GdkPixbuf *chair_128;
+GtkWidget *image1;
+GtkWidget *pic_array[PIC_X][PIC_Y];
 #ifdef USE_GLADE
 GtkBuilder *builder;
 #endif
@@ -68,7 +77,12 @@ int gui_main(int argc, char **argv)
 /* Section, which uses Glade for the GUI */
 #ifdef USE_GLADE // If macro USE_GLADE is defined, then...
     g_print("Using Glade for the GUI...\n");
-    builder = gtk_builder_new_from_file("glade-example.glade");           // Get Glade-XML from file
+#ifndef USE_RESOURCE
+    builder = gtk_builder_new_from_file("glade-example.glade"); // Get Glade-XML from file
+#endif
+#ifdef USE_RESOURCE
+    builder = gtk_builder_new_from_resource("/builder/glade-example.glade"); // Get Glade-XML from compiled resource
+#endif
     window = GTK_WIDGET(gtk_builder_get_object(builder, "window"));       // Get main window container
     g_signal_connect(window, "destroy", G_CALLBACK(gtk_main_quit), NULL); // Connect close-button of window with internal quit-callback
 
@@ -83,6 +97,65 @@ int gui_main(int argc, char **argv)
     dialog_button1 = GTK_WIDGET(gtk_builder_get_object(builder, "dialog_button1"));
     g_signal_connect(dialog_button1, "clicked", G_CALLBACK(on_dialog_save), dialog_entry);
     dialog_button2 = GTK_WIDGET(gtk_builder_get_object(builder, "dialog_button2"));
+    image1 = GTK_WIDGET(gtk_builder_get_object(builder, "image1"));
+
+    for (int i = 0; i < PIC_X; i++)
+    {
+        for (int j = 0; j < PIC_Y; j++)
+        {
+            char buf[8];
+            sprintf(buf, "pic_%d_%d", i, j); // UNSAFE
+            pic_array[i][j] = GTK_WIDGET(gtk_builder_get_object(builder, buf));
+            g_print(buf);
+        }
+    }
+
+// Get GdkPixbufs from file
+#ifndef USE_RESOURCE
+    icon = gdk_pixbuf_new_from_file("icon.png", NULL);
+    gtk_image_set_from_pixbuf(GTK_IMAGE(image1), icon);
+#endif
+
+// Get GdkPixbufs from compiled resource
+#ifdef USE_RESOURCE
+    chair_64 = gdk_pixbuf_new_from_resource("/images/chair_64px.png", NULL);
+    gtk_image_set_from_pixbuf(GTK_IMAGE(image1), chair_64);
+
+    for (int i = 0; i < PIC_X; i++)
+    {
+        for (int j = 0; j < PIC_Y; j++)
+        {
+            gtk_image_set_from_pixbuf(GTK_IMAGE(pic_array[i][j]), chair_64);
+            // pic_array[i][j] => GTK_Image an Stelle (X,Y) des Grids
+        }
+    }
+    // set_image_at_position(x,y, pixbuf);
+    // pic_array[x][y] => gtk_image_set_from_pixbuf()
+
+    /*
+PixBuf pic1;
+PixBufpic2;
+PixBuf pic3;
+
+( ( (CELL_STATE, GtkWidget) ), ( () ), ( () ), )
+(CELL_STATE, GtkWidget )
+=> gridTable[0][0] = (CELL_STATE, GtkWidget) ... Tuple im Grid
+=> gridTable[0][0] = struct cell {UNBELEGT, cell_0_0} ... übersetzt in Code (ca.)
+struct targetCell = gridTable[0][0]
+int x = &targetCell[0]
+GtkWidgety = targetCell[1]
+
+(x++) ... Zellenwert um 1 erhöhen
+(x = x%3) ... Modulo 3 damit wir in Range 0-2 bleiben
+((x++)%3, cell_0_0)
+
+Empfehlung => switch() case
+Abfrage, welches Bild gesetzt werden soll, anhand des aktuellen Zellenwerts = x
+if(x == UNBELEGT) => gtk_image_set_pixBuf(cell_0_0, pic1)
+if(x == FREI) => gtk_image_set_pixBuf(cell_0_0, pic2)
+if(x == BELEGT) => gtk_image_set_pixBuf(cell_0_0, pic3)
+    */
+#endif
 
     gtk_widget_show_all(window); // GTK_WIDGET(window)
 #endif
@@ -91,7 +164,7 @@ int gui_main(int argc, char **argv)
 /* Section, which uses pure GTK for the GUI */
 #ifndef USE_GLADE // If macro USE_GLADE is not defined, then...
     g_print("Using pure GTK for the GUI...\n");
-    window = gtk_window_new();
+    window = gtk_window_new(GTK_WINDOW_TOPLEVEL);
     gtk_window_set_title(GTK_WINDOW(window), "GTK3 Example");
     gtk_window_set_default_size(GTK_WINDOW(window), 400, 300);
     gtk_window_set_resizable(GTK_WINDOW(window), TRUE);

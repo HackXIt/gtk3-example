@@ -45,8 +45,11 @@ vpath %.h ./inc
 # about patsubst: https://www.gnu.org/software/make/manual/html_node/Text-Functions.html
 # This variable replaces all instances of $(OBJECTS) with a given list of object files, including their build-path
 # _OBJECTS should include all *.o files that the MAIN-File requires
-_OBJECTS=gui.o
+_OBJECTS=gui.o resources.o
 OBJECTS=$(patsubst %,$(BUILD)%,$(_OBJECTS))
+
+# This target is executed when just using 'make' - It must remain as the top target
+default: current
 
 # To create a target for an object file, write the following:
 # Headers should never be written here, as 'gcc' will look for them in the source-files anyways
@@ -71,9 +74,6 @@ $(BUILD)gui.o: gui.c
 $(BUILD)%.o: %.c
 	$(CC) $(CFLAGS) $(GTKFLAGS) $(GTKLIB) -c $< -o $@
 
-# This target is executed when just using 'make'
-all: build
-
 # Executed with: make current
 current: main.c $(OBJECTS)
 	$(CC) $(CFLAGS) $(GTKFLAGS) $^ -o $(BUILD)$@ $(GTKLIB)
@@ -86,7 +86,11 @@ clean:
 doc: Doxyfile
 	${DOXYGEN} $<
 
+# Generate the resource source-file
 resource:
+	cd ./resources && glib-compile-resources --target=resources.c --generate-source resources.xml && mv -f resources.c ../src && cd ..
+
+resource-copy:
 	cp $(GLADE_FILE) ./build/ && cp $(GLADE_FILE) ./cmake-build/bin
 
 # The following targets are shortcuts to use the underlying CMakeFiles.txt in 'cmake-build'
@@ -108,4 +112,4 @@ testrun: build
 
 # For targets which don't have any input-files and just execute something
 # Read this for clarification: https://web.mit.edu/gnu/doc/html/make_4.html#SEC31
-.PHONY: clean cmake-clean build test coverage testrun build-test resource
+.PHONY: clean cmake-clean build test coverage testrun build-test resource resource-copy default
