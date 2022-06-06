@@ -4,7 +4,7 @@
  * Created:
  *   May 30, 2022, 7:52:04 PM GMT+2
  * Last edited:
- *   June 6, 2022, 11:04:06 AM GMT+2
+ *   June 6, 2022, 11:33:01 AM GMT+2
  * Auto updated?
  *   Yes
  *
@@ -65,15 +65,8 @@ void on_dialog_write(GtkEntry *entry)
     gtk_label_set_text(GTK_LABEL(dialog_label), gtk_entry_get_text(entry));
 }
 
-// GTK also requires argc & argv
-int gui_main(int argc, char **argv)
+void initialize_gui()
 {
-    // This is a seperate main, which exclusively is used for the GUI
-    // If any CLI stuff or generic setup outside of the GUI needs to be done, do it in main.c
-
-    /* GTK initialization */
-    gtk_init(&argc, &argv);
-
 /* Section, which uses Glade for the GUI */
 #ifdef USE_GLADE // If macro USE_GLADE is defined, then...
     g_print("Using Glade for the GUI...\n");
@@ -98,6 +91,23 @@ int gui_main(int argc, char **argv)
     g_signal_connect(dialog_button1, "clicked", G_CALLBACK(on_dialog_save), dialog_entry);
     dialog_button2 = GTK_WIDGET(gtk_builder_get_object(builder, "dialog_button2"));
     image1 = GTK_WIDGET(gtk_builder_get_object(builder, "image1"));
+}
+
+// void set_image_at_position(int x, int y)
+// {
+
+// }
+
+// GTK also requires argc & argv
+int gui_main(int argc, char **argv)
+{
+    // This is a seperate main, which exclusively is used for the GUI
+    // If any CLI stuff or generic setup outside of the GUI needs to be done, do it in main.c
+
+    /* GTK initialization */
+    gtk_init(&argc, &argv);
+
+    initialize_gui();
 
     for (int i = 0; i < PIC_X; i++)
     {

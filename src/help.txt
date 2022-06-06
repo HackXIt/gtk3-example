@@ -1,2 +1,33 @@
-builder = gtk_builder_new_from_resource("/builder/glade-example.glade");
-=> Hold ressource für builder von Ressource-Datei
+1)
+
+Derzeitige Glade Projekt aufsetzen => Layout, Positionierung, IDs
+
+2) 
+
+Initialisieren im Code => GTK-Glade mäßige
+
+3)
+
+Bilder vorbereiten => Dateien runterladen und im Code einsetzen
+- gtk_image_new_from_file oder gtk_image_new_from_resource
+- gdk_pixbuf_new_from_file oder gdk_pixbuf_new_from_resource
+- gtk_image_set_from_pixbuf
+
+4)
+
+Allgemeine Logik der GUI vorbereiten
+=> Event-handler bzw. eine Funktion für Buttons
+- g_signal_connect
+- on_xyz()
+=> g_print("Not implemented - funktion_xyz()")
+
+5)
+
+Allgemeine Logik implementieren
+=> Welche Funktionen brauche ich für meine Anforderungen?
+=> Umsetzungen für Buttons
+=> Inputs & Outputs... Daten tatsächlich bearbeiten
+
+6)
+
+Projekt-Logik implementieren
