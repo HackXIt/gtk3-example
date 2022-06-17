@@ -19,6 +19,8 @@ cmake_minimum_required(VERSION 3.10.0)
 # Hier den Projektnamen ändern bzw. angeben
 project(gtk3-example C CXX)
 set(CMAKE_BUILD_TYPE "Debug")
+# To change the output folder of CMAKE itself, you need to change the settings of the extension
+# Either that, or in command line you use the option -B to set the output folder of the build.
 set(CMAKE_ARCHIVE_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/lib)
 set(CMAKE_LIBRARY_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/lib)
 set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/bin)

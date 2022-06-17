@@ -23,7 +23,8 @@
                 "binaryArgs": []
             }
         ],
-        "cmake.configureOnOpen": true
+        "cmake.configureOnOpen": true,
+        "cmake.buildDirectory": "${workspaceFolder}/cmake-build"
     },
     "tasks": {
         "version": "2.0.0",

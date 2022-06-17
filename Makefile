@@ -95,7 +95,7 @@ cmake-clean:
 	${CHANGE_DIR_CMAKE} && ${MAKE} clean
 # Configures and builds the CMake-Project
 build:
-	${CHANGE_DIR_CMAKE} && ${CMAKE} .. && ${MAKE}
+	${CMAKE} . -B./cmake-build && ${CHANGE_DIR_CMAKE} && ${MAKE}
 # Builds the CMake-Project and runs the testcases via make
 test: build
 	${CHANGE_DIR_CMAKE} && ${MAKE} test
