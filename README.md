@@ -50,20 +50,51 @@ mkdir build cmake-build
 cp modules cmake-build
 ```
 
-# Information about the Makefile
+# Building the project
+
+The project contains two seperate build-systems, which is why we also create two different build directories.
+The purpose of this is solely to demonstrate differences in the two build systems and also to seperate them without conflict.
+It might also be wrong to call them build-systems, but for simplicity-sake I'll do so.
+
+`make` and `cmake` are Tools, which keep track of changes in source-files and will rebuild only necessary parts of our program, without having to compile the whole project again.
+**CMake** is actually a tool, which generates a Makefile for us. The tool itself is just another abstraction, attempting to make things easier for the programmer.
+
+In order for the build-system to work, your project structure needs to look like so:
+`./src/` => contains all translation-units, meaning source-files. That's the *code*.(*.c)
+`./inc/` => contains all header-files, which are preprocessor files. Look it up. (*.h)
+`./tests/` => contains all unit-testfiles, which basically is source-code for testing other code. (*.cxx)
+`./build/` => is the output-folder for the `make` build-system (without CMAKE)
+`./cmake-build/` => is the output-folder for the `cmake` build-system
+
+To build the project with the given build-systems, there exist the following targets to execute in terminal: *(All targets are executed via the given Makefile)*
+
+| Target           | Purpose                                                                                           |
+|------------------|---------------------------------------------------------------------------------------------------|
+| make build       | Configures and builds the Cmake-Project                                                           |
+| make cmake-clean | Executes the 'clean' target in the underlying CMake-Project                                       |
+| make test        | Builds the CMake-Project and runs the test-target                                                 |
+| make coverage    | Builds the CMake-Project and runs the coverage report target                                      |
+| make testrun     | Runs the unit tests executable directly                                                           |
+| make current     | Builds current version of project, using the given objects                                        |
+| make clean       | Cleans the build directory of the Make-Project, basically deleting all object-files & executables |
+| make doc         | Generate the doxygen-documentation, if an appropriate Doxyfile exists                             |
+
+## Information about the Makefile
 
 - [ ] Write short make guide, specific to this repository
 
-## References for Makefile
+Our first b
+
+### References for Makefile
 
 - https://makefiletutorial.com/
 - https://www.gnu.org/software/make/manual/html_node/index.html
 
-# Information about the CMakeLists
+## Information about the CMakeLists
 
 - [ ] Write short cmake guide, specific to this repository
 
-## References for CMakeLists
+### References for CMakeLists
 
 - https://cmake.org/cmake/help/latest/guide/tutorial/index.html
 - http://derekmolloy.ie/hello-world-introductions-to-cmake/
