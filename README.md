@@ -60,11 +60,12 @@ It might also be wrong to call them build-systems, but for simplicity-sake I'll 
 **CMake** is actually a tool, which generates a Makefile for us. The tool itself is just another abstraction, attempting to make things easier for the programmer.
 
 In order for the build-system to work, your project structure needs to look like so:
-`./src/` => contains all translation-units, meaning source-files. That's the *code*.(*.c)
-`./inc/` => contains all header-files, which are preprocessor files. Look it up. (*.h)
-`./tests/` => contains all unit-testfiles, which basically is source-code for testing other code. (*.cxx)
-`./build/` => is the output-folder for the `make` build-system (without CMAKE)
-`./cmake-build/` => is the output-folder for the `cmake` build-system
+
+ - `./src/` => contains all translation-units, meaning source-files. That's the *code*.(*.c)
+ - `./inc/` => contains all header-files, which are preprocessor files. Look it up. (*.h)
+ - `./tests/` => contains all unit-testfiles, which basically is source-code for testing other code. (*.cxx)
+ - `./build/` => is the output-folder for the `make` build-system (without CMAKE)
+ - `./cmake-build/` => is the output-folder for the `cmake` build-system
 
 To build the project with the given build-systems, there exist the following targets to execute in terminal: *(All targets are executed via the given Makefile)*
 
